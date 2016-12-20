@@ -65,9 +65,15 @@ console.log(user);
 console.log(studentUrl);
 
 
-$('#submit').submit(function(){
+$('#submit').on('click', function(event){
+	event.preventDefault();
 
-	console.log(user);
+	user = $('#student').val();
+	studentUrl = "https://teamtreehouse.com/" + user + ".json";
+
+
+	console.log('here' + studentUrl);
+  
   $.getJSON(studentUrl, function(results){
 
 		var count = 0;
