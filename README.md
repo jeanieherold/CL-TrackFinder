@@ -1,5 +1,5 @@
-# Code Louisville - Track Checker
+# Code Louisville Badge Tracker Project
 
-Program to check the tracks completed by a student in the program. 
+## Work in Progress... 
 
-
+Enter a student treehouse name and compare completed badges to badges needed to graduate from a Code Louisville Track
