@@ -19,7 +19,7 @@
 		 				LOGO/MAIN NAV
 		==================================== -->
 		<div id="logo">
-				<a href="index.html"><img src="images/jhlogo.png" width="100"></a>
+				<h1>Code Louisville Badge Tracker</h1>
 			</div>
 		<nav>
 	        <ul>
@@ -34,7 +34,7 @@
 				PAGE CONTENT
 	==================================== -->
 	<div id="wrapper">
-		<div><h1 id="title" class="center">Code Louisville Badge Tracker Project</h1>
+		<div><h2 id="title">Enter Treehouse ID</h2>
 		</div>
 
 		<div class="container">
@@ -42,20 +42,33 @@
 
 			<div>
 			  <div id="track-finder">
-			      <form class="center">
+			      <form>
 			        <input id="student" name="student" type="text" placeholder="Search for..." value="treehouse Id">
 			        <input id="submit" type="submit" value="Go">
 			      </form>
 			  </div>
 			</div>
-      
 
+      <!-- Results Section -->
       <div id="results">
-        <div id="completed-tracks" class="center">C#/.Net Completed Badges</div>
+        
+        <!-- Completed Badges Section -->
+        <div id="completed-badges" class="col primary">
+        	<h2>C#/.Net Completed Badges</h2>
 
-          <ul id="badges-earned">
+	        <div id="badges-earned">
 
-          </ul>
+	        </div>
+	      </div><!--/completed badges-->
+    
+        <!-- Needed Badges Section -->
+        <div id="needed-badges" class="col secondary">
+        	<h2>C#/.Net Needed Badges</h2>
+
+	        <div id="badges-needed">
+
+	        </div>
+	      </div><!--/needed badges-->
 
       </div><!--/results-->
     
