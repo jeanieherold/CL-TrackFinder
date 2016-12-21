@@ -58,6 +58,11 @@ var phpBadges = [
 	'Workflows'
 ];
 
+//get total badges in array and display
+var totalBadges = phpBadges.length;
+console.log(totalBadges);
+$('#php-total-badges').html('<h2 class="purple">PHP Badges Needed to Graduate: ' + totalBadges + ' </h2>');
+
 //clear the input field when clicked in
 $('#student').on('click', function(){
 	$(this).val('');

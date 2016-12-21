@@ -3,55 +3,85 @@
 ==================================== */
 
 	
-var netBadges = [
+var fsjsBadges = [
+	'JavaScript Loops',
+	'JavaScript Arrays',
+	'JavaScript Objects',
+	'Hello, GitHub!',
+	'Working By Yourself',
+	' Working on a Team', //json has an extra space
+	' Create a Web Presence on GitHub', //json has an extra space
+	'Get Involved in Open Source',
+	'Introduction to jQuery',
+	'Creating a Spoiler Revealer',
+	'Creating a Simple Lightbox',
+	'Creating a Mobile Drop Down Menu',
+	'Creating a Password Confirmation Form',
+	'Creating a Simple Drawing Application',
+	'Introducing jQuery Plugins',
+	'Add a Sticky Navigation Bar',
+	'Using a jQuery Carousel',
+	'JavaScript and the DOM',
+	'Selecting Elements and Adding Events with JavaScript',
+	'Traversing and Manipulating the DOM with JavaScript',
+	'AJAX Concepts',
+	'Programming AJAX',
+	'jQuery and AJAX',
+	'AJAX and APIs',
+	'Introduction to Methods',
+	'Constructor Functions & Prototypes', //json has an ampersand &
+	'Prototypal Inheritance',
+	'Quiz Practice Project',
+	'Introduction to Node.js',
+	'Building a Command Line Application',
+	'Creating a Simple Server in Node.js',
+	'Handling Routes in Node.js',
+	'Creating a Basic Template Engine in Node.js',
+	'HTTP Methods and Headers',
+	'What is npm?',
+	'Installing Packages with npm',
+	'Updating and Uninstalling Packages with npm',
 	'Why Version Control Matters',
 	'Getting Started With Git',
 	'Branches',
 	'Merging',
 	'Working With Remote Repositories',
 	'Workflows',
-	'Prepare and Plan',
-	'Console I/O',
-	'Perform',
-	'Perfect',
-	'Object-Oriented Programming',
-	'Methods',
-	'Inheritance',
-	'Encapsulation and Arrays',
-	'Encapsulation with Properties',
-	'Loops and Final Touches',
-	'Polymorphism',
-	'System.Object',
-	'Abstraction',
-	'Data Reader',
-	'Data Parser',
-	'Serialized!',
-	'Data Retriever',
-	'Data, Databases and SQL',
-	'Getting Data from a Database',
-	'Finding the Data You Want',
-	'Adding Data to a Database',
-	'Updating Data in a Database',
-	'Deleting Data From a Database',
-	'Handling Errors When Manipulating Data',
-	'Project Setup',
-	'Controllers',
-	'Views',
-	'Modeling and Presenting Data',
-	'Adding a List Page',
-	'Now You\'re Querying!',
-	'Functional!',
-	'Query Operators',
-	'Querying Builder',
-	'Arrays',
-	'Lists',
-	'Sets and Dictionaries',
-	'Introducing CRUD Applications',
-	'Creating a Basic Form',
-	'Improving Our Form',
-	'Adding Form Validation',
-	'Finishing Our CRUD Web App'
+	'Getting Started with Express',
+	'Developing Express Apps Like a Boss',
+	'The Request and Response Objects in Express',
+	'Using Templates with Express',
+	'Serving Static Files in Express',
+	'Doing More with Express', //json variation - More
+	'Welcome to Gulp.js',
+	'Gulp your JavaScript workflow!', //json variation - !
+	'Compile Sass with Gulp',
+	'Improving your Gulp Workflow',
+	'Getting Started with Angular',
+	'Controllers and Scope',
+	'Using Angular\'s Built-in Directives', //json variation - Built-in
+	'Services in Angular',
+	'Improving Our Todo App',
+	'Getting Started with MongoDB', //json variation
+	'Understanding MongoDB',
+	'Working With Collections',
+	'Go Further With Mongo ', //json variation
+	'Introduction to MEAN ', //json variation
+	'Going MEAN with Express',
+	'Going MEAN with Angular ', //json variation
+	'Setting Up MongoDB',
+	'Creating and Editing Data in a MEAN App',
+	'More TODO with the MEAN Stack',
+	'Introducing Unit Testing',
+	'Behavior Driven Development with Mocha & Chai',
+	'Improving Our Tests',
+	'Next Steps'
 ];
+
+//get total badges in array and display
+var totalBadges = fsjsBadges.length;
+console.log(totalBadges);
+$('#fsjs-total-badges').html('<h2 class="purple">FSJS Badges Needed to Graduate: ' + totalBadges + ' </h2>');
 
 //clear the input field when clicked in
 $('#student').on('click', function(){
@@ -69,8 +99,6 @@ $('#submit').on('click', function(event){
 	user = $('#student').val();
 	studentUrl = "https://teamtreehouse.com/" + user + ".json";
 
-
-	console.log('here' + studentUrl);
   
   $.getJSON(studentUrl, function(results){
 
@@ -88,11 +116,11 @@ $('#submit').on('click', function(event){
 
 		//make an array of badges completed in Code Louisville Track
 		var common = $.grep(completes, function(element) {
-		return $.inArray(element, netBadges ) !== -1;
+		return $.inArray(element, fsjsBadges ) !== -1;
 		});
 
 		//make an array of badges still needed in Code Louisville Track
-		var notInCommon = $.grep(netBadges, function(element) {
+		var notInCommon = $.grep(fsjsBadges, function(element) {
 		return $.inArray(element, completes ) === -1;
 		});
 
@@ -112,47 +140,47 @@ $('#submit').on('click', function(event){
 		
 		
 		//primary col - open ol tag --------------------------------------------------
-    var earnedListHTML = '<ol class="list-results">';
+    var fsjsEarnedList = '<ol class="list-results">';
 
     //Loop through the array of badges in common with students earned badges and cNet track results
     $.each(common, function(i, poke) {
 
         //open the li tag
-        earnedListHTML += '<li class="earned-badge">';
+        fsjsEarnedList += '<li class="earned-badge">';
         //add h3 tag and poke name
-        earnedListHTML += '<h3 class="name">' + common[i] + '</h3>';
+        fsjsEarnedList += '<h3 class="name">' + common[i] + '</h3>';
         //close the li tag
-        earnedListHTML += '</li>';
+        fsjsEarnedList += '</li>';
 
     }); //end .each loop
 
     //close ul tag
-    earnedListHTML += '</ol>';
+    fsjsEarnedList += '</ol>';
 
     //set html of the #pokemon ul
-    $('#badges-earned').html(earnedListHTML);
+    $('#fsjs-badges-earned').html(fsjsEarnedList);
 
 
     //secondary col - open ol tag -------------------------------------------------
-    var needList = '<ol class="list-results">';
+    var fsjsNeedList = '<ol class="list-results">';
 
     //Loop through the array of needed badges results
     $.each(notInCommon, function(i, poke) {
 
         //open the li tag
-        needList += '<li class="need-badge">';
+        fsjsNeedList += '<li class="need-badge">';
         //add h3 tag and poke name
-        needList += '<h3 class="name">' + notInCommon[i] + '</h3>';
+        fsjsNeedList += '<h3 class="name">' + notInCommon[i] + '</h3>';
         //close the li tag
-        needList += '</li>';
+        fsjsNeedList += '</li>';
 
     }); //end .each loop
 
     //close ul tag
-    needList += '</ol>';
+    fsjsNeedList += '</ol>';
 
     //set html of the #pokemon ul
-    $('#badges-needed').html(needList);
+    $('#fsjs-badges-needed').html(fsjsNeedList);
 
   }); //end of .json call
 

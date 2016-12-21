@@ -53,6 +53,11 @@ var netBadges = [
 	'Finishing Our CRUD Web App'
 ];
 
+//get total badges in array and display
+var totalBadges = netBadges.length;
+console.log(totalBadges);
+$('#csharp-total-badges').html('<h2 class="purple">C#/.Net Badges Needed to Graduate: ' + totalBadges + ' </h2>');
+
 //clear the input field when clicked in
 $('#student').on('click', function(){
 	$(this).val('');

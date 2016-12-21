@@ -31,7 +31,6 @@ header {
 
 #wrapper {
   width: 95%;
-  max-width: 940px;
   display: block;
   margin: 0 auto;
   padding: 0 5%;
@@ -96,6 +95,10 @@ a {
 	text-align: center;
 }
 
+.purple {
+  color: #5b258e;
+}
+
 
 /* ================================= 
   Logo
@@ -141,12 +144,13 @@ nav a.selected, nav a:hover {
 ==================================== */
 
 #title {
-  padding: 25px;
+  padding: 20px;
   color: #5b258e;
 }
 
 #student {
-  margin: 20px;
+  width: 75%;
+  margin: 0 0 25px 20px;
   padding: 5px;
   border-radius: 5px;
 }
@@ -178,15 +182,22 @@ nav a.selected, nav a:hover {
   padding: 20px;
 }
 
+#csharp-total-badges,
+#fsjs-total-badges,
+#php-total-badges {
+  margin-bottom: 25px;
+  font-size: 0.75em;
+}
+
 #completed-badges h2 {
+  margin-top: 20px;
   margin-bottom: 30px;
-  text-align: center;
   color: #4e9951;
 }
 
 #needed-badges h2 {
+  margin-top: 10px;
   margin-bottom: 30px;
-  text-align: center;
   color: #ff1c66;
 }
 
@@ -258,7 +269,7 @@ footer {
   /* =====General===== */
 
   #wrapper {
-    width: 95%;
+    max-width: 1200px;
   }
 
 	h1 {
@@ -300,14 +311,20 @@ footer {
     padding: 15px 10px;
     color: #ccc;
   }
+/* =====Search Section===== */
+  #student {
+    width: 30%;
+  }
 
   /* =====Results Section===== */
   #completed-badges h2 {
     text-align: left;
+    margin-top: 25px;
   }
 
   #needed-badges h2 {
     text-align: left;
+    margin-top: 25px;
   }
 
   #needed-badges {
