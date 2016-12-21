@@ -81,7 +81,7 @@ var fsjsBadges = [
 //get total badges in array and display
 var totalBadges = fsjsBadges.length;
 console.log(totalBadges);
-$('#fsjs-total-badges').html('<h2 class="purple">FSJS Badges Needed to Graduate: ' + totalBadges + ' </h2>');
+$('#fsjs-total-badges').html('<h2 class="gray">FSJS Badges Needed to Graduate: ' + totalBadges + ' </h2>');
 
 //clear the input field when clicked in
 $('#student').on('click', function(){
@@ -96,8 +96,14 @@ var studentUrl = "https://teamtreehouse.com/" + user + ".json";
 $('#submit').on('click', function(event){
 	event.preventDefault();
 
+	//notify user of wait
+	$('#submit').css("cursor", "wait");
+
 	user = $('#student').val();
 	studentUrl = "https://teamtreehouse.com/" + user + ".json";
+
+	//display current user to screen
+	$('#fsjs-user').html('<h2 class="purple">Student: ' + user + ' </h2>');
 
   
   $.getJSON(studentUrl, function(results){
@@ -175,11 +181,18 @@ $('#submit').on('click', function(event){
     //set html of the badgelist ol
     $('#fsjs-badges-needed').html(fsjsNeedList);
 
+     //reset cursor
+     $('#submit').css("cursor", "pointer");
+
   	}).fail(function (jqXHR) {
      var errorMessage = user + " : not a Treehouse User Id.";
      $('#student').val(errorMessage);
      $('#fsjs-badges-earned').html('<p>User Not Found</p>');
      $('#fsjs-badges-needed').html('<p>User Not Found</p>');
+     $('#fsjs-user').html('<h2 class="purple">Student: not found!</h2>');
+
+     //reset cursor
+     $('#submit').css("cursor", "pointer");
    }); //end of .json call
 
 }); //end 'Go' click
