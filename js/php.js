@@ -4,10 +4,10 @@
 
 	
 var phpBadges = [
-	'Getting Familiar with HTML and CSS',
+	'Getting Familiar with HTML and CSS ', //json variation - spaces
 	'HTML: The Structural Foundation of Web Pages and Applications',
-	'Make It Beautiful With CSS',
-	'Adding a New Web Page',
+	'Make It Beautiful with CSS', //json variation - spaces
+	'Adding a New Web Page ', //json variation - spaces
 	'PHP Getting Started',
 	'PHP Data & Structure',
 	'PHP Datatypes',
@@ -17,7 +17,7 @@ var phpBadges = [
 	'Unit Converter',
 	'Daily Exercise Program',
 	'PHP on the Web',
-	'PHP Function Basics',
+	'PHP Functions Basics', //json variation - plural
 	'PHP Returns & Closures',
 	'PHP Internal Functions',
 	'PHP Includes',
@@ -29,7 +29,7 @@ var phpBadges = [
 	'Finding the Data You Want',
 	'PHPDB Stage 1: Databases and PHP',
 	'PHPDB Stage 2: Querying the Database with PHP',
-	'PHPDB Stage 3: Using Relational Tables',
+	'PHPDB Stage 3: Using Relational Data', //json variation - course title uses tables - badge in json has Data
 	'PHPDB Stage 4: Pagination with LIMITs',
 	'PHPDB Stage 5: Search',
 	'Why Object-Oriented Programming?',
@@ -42,11 +42,11 @@ var phpBadges = [
 	'How To Test Our Code',
 	'Tools for Testers',
 	'Creating Your Tests',
-	'organizing Your Tests',
+	'Organizing your Tests', //json variation - your
 	'Acceptance Tests',
 	'Test Doubles',
 	'Moving Around in the Console',
-	'Console Users and Permissions',
+	'Console Users and Permission', //json variation permission
 	'Console Processes',
 	'Environment and Redirection',
 	'Installing Programs',

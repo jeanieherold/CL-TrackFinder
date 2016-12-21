@@ -32,7 +32,7 @@ var netBadges = [
 	'Finding the Data You Want',
 	'Adding Data to a Database',
 	'Updating Data in a Database',
-	'Deleting Data From a Database',
+	'Deleting Data from a Database', //json variation from
 	'Handling Errors When Manipulating Data',
 	'Project Setup',
 	'Controllers',
@@ -42,7 +42,7 @@ var netBadges = [
 	'Now You\'re Querying!',
 	'Functional!',
 	'Query Operators',
-	'Querying Builder',
+	'Query Builder', //json variation Query 
 	'Arrays',
 	'Lists',
 	'Sets and Dictionaries',
