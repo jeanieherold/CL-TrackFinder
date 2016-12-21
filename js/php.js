@@ -2,15 +2,17 @@
   C#/.Net Badge Scripts
 ==================================== */
 
+//Deprated PHP Badges 
+	// 'PHP Getting Started', //MAY BE DEPRECATED OR NEW TO CL PHP TRACK
+	// 'PHP Data & Structure', //MAY BE DEPRECATED OR NEW TO CL PHP TRACK
+	// 'PHP Datatypes', //MAY BE DEPRECATED OR NEW TO CL PHP TRACK
+
 	
 var phpBadges = [
 	'Getting Familiar with HTML and CSS ', //json variation - spaces
 	'HTML: The Structural Foundation of Web Pages and Applications',
 	'Make It Beautiful with CSS', //json variation - spaces
 	'Adding a New Web Page ', //json variation - spaces
-	'PHP Getting Started',
-	'PHP Data & Structure',
-	'PHP Datatypes',
 	'PHP Conditionals',
 	'PHP Loops',
 	'Getting to Know PHP',
@@ -72,15 +74,13 @@ $('#student').on('click', function(){
 var user = $("#student").val();
 var studentUrl = "https://teamtreehouse.com/" + user + ".json";
 
-
+//get results
 $('#submit').on('click', function(event){
 	event.preventDefault();
 
 	user = $('#student').val();
 	studentUrl = "https://teamtreehouse.com/" + user + ".json";
 
-
-	console.log('here' + studentUrl);
   
   $.getJSON(studentUrl, function(results){
 
@@ -88,12 +88,10 @@ $('#submit').on('click', function(event){
 		var completes = [];
 		//create an array badges completed
 		for (var i = 0; i < results.badges.length; i++) {
-
-			//removing the whitespace for accuracy
-			// results.badges[i].name = results.badges[i].name.replace(/\s+/g, '');
 			
 			//obtaining an array ALL badges a student has earned in Treehouse
 			completes.push(results.badges[i].name);
+
 		}
 
 		//make an array of badges completed in Code Louisville Track
@@ -106,12 +104,7 @@ $('#submit').on('click', function(event){
 		return $.inArray(element, completes ) === -1;
 		});
 
-		console.log(common);
-		console.log(common.length);
-
-		console.log(notInCommon);
-		console.log(notInCommon.length);
-
+		//var for html location to store results
 		var $earned = $('#badges-earned');
 
 		for(i = 0; i < common.length; i++) {
@@ -125,21 +118,21 @@ $('#submit').on('click', function(event){
     var phpListHTML = '<ol class="list-results">';
 
     //Loop through the array of badges in common with students earned badges and cNet track results
-    $.each(common, function(i, poke) {
+    $.each(common, function(i, badge) {
 
         //open the li tag
         phpListHTML += '<li class="earned-badge">';
-        //add h3 tag and poke name
+        //add h3 tag and badge name
         phpListHTML += '<h3 class="name">' + common[i] + '</h3>';
         //close the li tag
         phpListHTML += '</li>';
 
     }); //end .each loop
 
-    //close ul tag
+    //close ol tag
     phpListHTML += '</ol>';
 
-    //set html of the #pokemon ul
+    //set html of the badgelist ol
     $('#php-badges-earned').html(phpListHTML);
 
 
@@ -147,24 +140,29 @@ $('#submit').on('click', function(event){
     var phpNeedList = '<ol class="list-results">';
 
     //Loop through the array of needed badges results
-    $.each(notInCommon, function(i, poke) {
+    $.each(notInCommon, function(i, badge) {
 
         //open the li tag
         phpNeedList += '<li class="need-badge">';
-        //add h3 tag and poke name
+        //add h3 tag and badge name
         phpNeedList += '<h3 class="name">' + notInCommon[i] + '</h3>';
         //close the li tag
         phpNeedList += '</li>';
 
     }); //end .each loop
 
-    //close ul tag
+    //close ol tag
     phpNeedList += '</ol>';
 
-    //set html of the #pokemon ul
+    //set html of the badgelist ol
     $('#php-badges-needed').html(phpNeedList);
 
-  }); //end of .json call
+  	}).fail(function (jqXHR) {
+     var errorMessage = user + " : not a Treehouse User Id.";
+     $('#student').val(errorMessage);
+     $('#php-badges-earned').html('<p>User Not Found</p>');
+     $('#php-badges-needed').html('<p>User Not Found</p>');
+   }); //end of .json call
 
 }); //end 'Go' click
 

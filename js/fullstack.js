@@ -92,7 +92,7 @@ $('#student').on('click', function(){
 var user = $("#student").val();
 var studentUrl = "https://teamtreehouse.com/" + user + ".json";
 
-
+//get results
 $('#submit').on('click', function(event){
 	event.preventDefault();
 
@@ -107,11 +107,9 @@ $('#submit').on('click', function(event){
 		//create an array badges completed
 		for (var i = 0; i < results.badges.length; i++) {
 
-			//removing the whitespace for accuracy
-			// results.badges[i].name = results.badges[i].name.replace(/\s+/g, '');
-			
 			//obtaining an array ALL badges a student has earned in Treehouse
 			completes.push(results.badges[i].name);
+
 		}
 
 		//make an array of badges completed in Code Louisville Track
@@ -124,12 +122,7 @@ $('#submit').on('click', function(event){
 		return $.inArray(element, completes ) === -1;
 		});
 
-		console.log(common);
-		console.log(common.length);
-
-		console.log(notInCommon);
-		console.log(notInCommon.length);
-
+		//var for html location to store results
 		var $earned = $('#badges-earned');
 
 		for(i = 0; i < common.length; i++) {
@@ -143,21 +136,21 @@ $('#submit').on('click', function(event){
     var fsjsEarnedList = '<ol class="list-results">';
 
     //Loop through the array of badges in common with students earned badges and cNet track results
-    $.each(common, function(i, poke) {
+    $.each(common, function(i, badge) {
 
         //open the li tag
         fsjsEarnedList += '<li class="earned-badge">';
-        //add h3 tag and poke name
+        //add h3 tag and badge name
         fsjsEarnedList += '<h3 class="name">' + common[i] + '</h3>';
         //close the li tag
         fsjsEarnedList += '</li>';
 
     }); //end .each loop
 
-    //close ul tag
+    //close ol tag
     fsjsEarnedList += '</ol>';
 
-    //set html of the #pokemon ul
+    //set html of the badgelist ol
     $('#fsjs-badges-earned').html(fsjsEarnedList);
 
 
@@ -165,24 +158,29 @@ $('#submit').on('click', function(event){
     var fsjsNeedList = '<ol class="list-results">';
 
     //Loop through the array of needed badges results
-    $.each(notInCommon, function(i, poke) {
+    $.each(notInCommon, function(i, badge) {
 
         //open the li tag
         fsjsNeedList += '<li class="need-badge">';
-        //add h3 tag and poke name
+        //add h3 tag and badge name
         fsjsNeedList += '<h3 class="name">' + notInCommon[i] + '</h3>';
         //close the li tag
         fsjsNeedList += '</li>';
 
     }); //end .each loop
 
-    //close ul tag
+    //close ol tag
     fsjsNeedList += '</ol>';
 
-    //set html of the #pokemon ul
+    //set html of the badgelist ol
     $('#fsjs-badges-needed').html(fsjsNeedList);
 
-  }); //end of .json call
+  	}).fail(function (jqXHR) {
+     var errorMessage = user + " : not a Treehouse User Id.";
+     $('#student').val(errorMessage);
+     $('#fsjs-badges-earned').html('<p>User Not Found</p>');
+     $('#fsjs-badges-needed').html('<p>User Not Found</p>');
+   }); //end of .json call
 
 }); //end 'Go' click
 

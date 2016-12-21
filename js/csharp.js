@@ -22,21 +22,21 @@ var netBadges = [
 	'Loops and Final Touches',
 	'Polymorphism',
 	'System.Object',
-	'Abstraction',
-	'Data Reader',
-	'Data Parser',
-	'Serialized!',
-	'Data Retriever',
-	'Data, Databases and SQL',
-	'Getting Data from a Database',
-	'Finding the Data You Want',
-	'Adding Data to a Database',
-	'Updating Data in a Database',
+	'Abstraction', //
+	'Data Reader', //
+	'Data Parser', //
+	'Serialized!', //
+	'Data Retreiver', //
+	'Data, Databases and SQL', //
+	'Getting Data from a Database', //
+	'Finding the Data You Want', //
+	'Adding Data to a Database', //
+	'Updating Data in a Database', //
 	'Deleting Data from a Database', //json variation from
-	'Handling Errors When Manipulating Data',
-	'Project Setup',
-	'Controllers',
-	'Views',
+	'Handling Errors When Manipulating Data', //
+	'Project Setup', // If a student has complete PHP and CNET - this will be in completes twice
+	'Controllers', //
+	'Views', //
 	'Modeling and Presenting Data',
 	'Adding a List Page',
 	'Now You\'re Querying!',
@@ -67,15 +67,13 @@ $('#student').on('click', function(){
 var user = $("#student").val();
 var studentUrl = "https://teamtreehouse.com/" + user + ".json";
 
-
+//get results
 $('#submit').on('click', function(event){
 	event.preventDefault();
 
 	user = $('#student').val();
 	studentUrl = "https://teamtreehouse.com/" + user + ".json";
 
-
-	console.log('here' + studentUrl);
   
   $.getJSON(studentUrl, function(results){
 
@@ -101,12 +99,7 @@ $('#submit').on('click', function(event){
 		return $.inArray(element, completes ) === -1;
 		});
 
-		console.log(common);
-		console.log(common.length);
-
-		console.log(notInCommon);
-		console.log(notInCommon.length);
-
+		//var for html location to store results
 		var $earned = $('#badges-earned');
 
 		for(i = 0; i < common.length; i++) {
@@ -120,21 +113,21 @@ $('#submit').on('click', function(event){
     var earnedListHTML = '<ol class="list-results">';
 
     //Loop through the array of badges in common with students earned badges and cNet track results
-    $.each(common, function(i, poke) {
+    $.each(common, function(i, badge) {
 
         //open the li tag
         earnedListHTML += '<li class="earned-badge">';
-        //add h3 tag and poke name
+        //add h3 tag and badge name
         earnedListHTML += '<h3 class="name">' + common[i] + '</h3>';
         //close the li tag
         earnedListHTML += '</li>';
 
     }); //end .each loop
 
-    //close ul tag
+    //close ol tag
     earnedListHTML += '</ol>';
 
-    //set html of the #pokemon ul
+    //set html of the badgelist ol
     $('#badges-earned').html(earnedListHTML);
 
 
@@ -142,24 +135,29 @@ $('#submit').on('click', function(event){
     var needList = '<ol class="list-results">';
 
     //Loop through the array of needed badges results
-    $.each(notInCommon, function(i, poke) {
+    $.each(notInCommon, function(i, badge) {
 
         //open the li tag
         needList += '<li class="need-badge">';
-        //add h3 tag and poke name
+        //add h3 tag and badge name
         needList += '<h3 class="name">' + notInCommon[i] + '</h3>';
         //close the li tag
         needList += '</li>';
 
     }); //end .each loop
 
-    //close ul tag
+    //close ol tag
     needList += '</ol>';
 
-    //set html of the #pokemon ul
+    //set html of the badgelist ol
     $('#badges-needed').html(needList);
 
-  }); //end of .json call
+  	}).fail(function (jqXHR) {
+     var errorMessage = user + " : not a Treehouse User Id.";
+     $('#student').val(errorMessage);
+     $('#badges-earned').html('<p>User Not Found</p>');
+     $('#badges-needed').html('<p>User Not Found</p>');
+   }); //end of .json call
 
 }); //end 'Go' click
 
