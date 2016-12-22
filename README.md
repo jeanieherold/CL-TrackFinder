@@ -6,3 +6,12 @@ Enter a student treehouse name and compare completed badges to badges needed to 
 ##Track Requirements are for current Tracks Only
 
 PHP has deprecated badges from previous years and are not included in updated Track Checker
+
+user id for testing:
+
+jeanieherold
+
+chalkers
+
+guil
+

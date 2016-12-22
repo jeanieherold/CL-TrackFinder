@@ -128,12 +128,6 @@ $('#submit').on('click', function(event){
 		return $.inArray(element, completes ) === -1;
 		});
 
-		//var for html location to store results
-		var $earned = $('#badges-earned');
-
-		for(i = 0; i < common.length; i++) {
-			$earned.innerHTML += '<li>' + common[i] + '</li>';
-		}
 
 		//Make a list of badges earned in one column and badges needed in 2nd column
 		
